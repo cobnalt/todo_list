@@ -36,7 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-.userlist {
-     min-height: calc(100vh - 124px);
-}

@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const Header = () => {
     return (
@@ -10,9 +11,16 @@ const Header = () => {
 
 const Menu = () => {
     return (
-        <nav className="navbar navbar-dark bg-dark">
+        <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
           <div className="container">
-            <a href='/' className="navbar-brand">Home</a>
+            <Link to='/' className='navbar-brand'>Home</Link>
+            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div className="navbar-nav">
+                    <Link to='/' className='nav-link'>Users</Link>
+                    <Link to='/projects' className='nav-link'>Projects</Link>
+                    <Link to='/todo' className='nav-link'>Todo</Link>
+                </div>
+            </div>
           </div>
         </nav>
     )
