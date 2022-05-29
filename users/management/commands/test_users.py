@@ -24,7 +24,7 @@ class Command(BaseCommand):
             username=username, email=email, password=password,
             first_name=first_name, last_name=last_name)
         for _ in range(1, 6):
-            username, email, password, first_name, last_name = self.make_person()
+            username, email, password, first_name, last_name = self.make_person(password='12345')
             try:
                 User.objects.create_user(
                     username=username, email=email, password=password,
