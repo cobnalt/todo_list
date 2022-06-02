@@ -61,7 +61,6 @@ class App extends React.Component {
         return headers
     }
 
-
     load_data() {
         const headers = this.get_headers()
         axios.get('http://127.0.0.1:8000/api/users/', {headers})
