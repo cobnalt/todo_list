@@ -39,11 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_filters',
-    'users',
-    'todo_item',
     'corsheaders',
     'rest_framework.authtoken',
     'drf_yasg',
+    'graphene_django',
+    'users',
+    'todo_item',
 ]
 
 MIDDLEWARE = [
@@ -140,7 +141,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 100,
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissions'
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.BasicAuthentication',
@@ -149,4 +150,8 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_VERSIONING_CLASS':
         'rest_framework.versioning.AcceptHeaderVersioning'
+}
+
+GRAPHENE = {
+    "SCHEMA": "todo_list.schema.schema"
 }
