@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 
 const AuthorItem = ({user}) => {
@@ -7,7 +8,7 @@ const AuthorItem = ({user}) => {
     )
 }
 
-const ProjectItem = ({project}) => {
+const ProjectItem = ({project, deleteProject}) => {
     return (
         <tr>
             <td>
@@ -22,11 +23,14 @@ const ProjectItem = ({project}) => {
                 </ol>
 
             </td>
+            <td><button onClick={()=>deleteProject(project.id)}
+                  type='button'>Удалить</button>
+            </td>
         </tr>
     )
 }
 
-const ProjectList = ({projects}) => {
+const ProjectList = ({projects, deleteProject}) => {
     return (
         <div className='container projectlist'>
             <div className='row'>
@@ -37,12 +41,14 @@ const ProjectList = ({projects}) => {
                                 <th>Name</th>
                                 <th>Link</th>
                                 <th>Users</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            {projects.map(project => <ProjectItem project={project} />)}
+                            {projects.map(project => <ProjectItem project={project} deleteProject={deleteProject} />)}
                         </tbody>
                     </table>
+                    <Link to='/projects/create'>Create</Link>
                 </div>
             </div>
         </div>
